@@ -1,9 +1,6 @@
 package com.realdolmen.course;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -15,6 +12,7 @@ public class Passenger implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String ssn;
     private String firstName;
     private String lastName;
@@ -24,7 +22,12 @@ public class Passenger implements Serializable{
 
     }
 
-    public Passenger()
+    public Passenger(String ssn, String fN, String lN, int fFM){
+        this.ssn = ssn;
+        this.firstName = fN;
+        this.lastName = lN;
+        this.frequentFlyerMiles = fFM;
+    }
 
     public Long getId() {
         return id;
