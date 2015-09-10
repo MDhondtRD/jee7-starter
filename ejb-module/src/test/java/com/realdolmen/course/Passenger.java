@@ -3,6 +3,7 @@ package com.realdolmen.course;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by MDNAX30 on 9/09/2015.
@@ -27,6 +28,38 @@ public class Passenger implements Serializable{
     private byte age;
     @Enumerated(EnumType.STRING)
     private PassengerType pType;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastFlight;
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> preferences;
+    @Embedded
+    private Address address;
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<CreditCard> creditCards;
+
+    public void addCreditCard(CreditCard cc){
+        creditCards.add(cc);
+    }
+
+    public void addPreference(String p){
+        preferences.add(p);
+    }
+
+    public List<CreditCard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(List<CreditCard> creditCards) {
+        this.creditCards = creditCards;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Date getLastFlight() {
         return lastFlight;
@@ -52,8 +85,13 @@ public class Passenger implements Serializable{
         this.dateOfBirth = dateOfBirth;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastFlight;
+    public List<String> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(List<String> preferences) {
+        this.preferences = preferences;
+    }
 
     Passenger(){
 
@@ -111,6 +149,10 @@ public class Passenger implements Serializable{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public byte getAge(){
+        return this.age;
     }
 
     public Integer getFrequentFlyerMiles() {

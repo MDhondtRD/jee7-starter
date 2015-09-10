@@ -30,4 +30,17 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
     public void passengerCanBeRetrievedById() throws Exception {
         assertEquals("1234", entityManager().find(Passenger.class, new Long(4000)).getSsn());
     }
+
+    @Test
+    public void passengerHasCorrectAge(){
+        Passenger p = new Passenger("17041991-099.96", "Maarten", "Dhondt", 5000, new Date(671846400));
+        entityManager().persist(p);
+        entityManager().flush();
+        assertEquals(24, p.getAge());
+    }
+
+    @Test
+    public void passengerHasMultiplePreferences(){
+        assertEquals(3, entityManager().find(Passenger.class, new Long(4000)).getPreferences().size());
+    }
 }
