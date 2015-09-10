@@ -17,6 +17,7 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
     public void passengerCanBePersisted() throws Exception {
         Passenger p = new Passenger("17041991-099.96", "Maarten", "Dhondt", 5000, new Date(), PassengerType.REGULAR);
         entityManager().persist(p);
+        entityManager().flush();
         assertNotNull(p.getId());
     }
 
@@ -40,7 +41,13 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
     }
 
     @Test
-    public void passengerHasMultiplePreferences(){
-        assertEquals(3, entityManager().find(Passenger.class, new Long(4000)).getPreferences().size());
+    public void passengerHasPreferences(){
+        Passenger p = new Passenger("17041991-099.96", "Maarten", "Dhondt", 5000, new Date(), PassengerType.REGULAR);
+        p.addPreference("test1");
+        p.addPreference("test2");
+        p.addPreference("test3");
+        entityManager().persist(p);
+        entityManager().flush();
+        assertEquals(3, entityManager().find(Passenger.class, p.getId()).getPreferences().size());
     }
 }

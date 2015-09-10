@@ -2,6 +2,7 @@ package com.realdolmen.course;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,20 @@ public class Passenger implements Serializable{
     private Address address;
     @ElementCollection(fetch = FetchType.LAZY)
     private List<CreditCard> creditCards;
+    @OneToMany
+    private List<Ticket> tickets;
+
+    public void addTicket(Ticket t){
+        tickets.add(t);
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 
     public void addCreditCard(CreditCard cc){
         creditCards.add(cc);
@@ -106,6 +121,9 @@ public class Passenger implements Serializable{
         this.age = calculateAge();
         this.lastFlight = null;
         this.pType = PassengerType.REGULAR;
+        this.preferences = new ArrayList<String>();
+        this.creditCards = new ArrayList<CreditCard>();
+        this.tickets = new ArrayList<Ticket>();
     }
 
     private byte calculateAge(){
@@ -121,6 +139,8 @@ public class Passenger implements Serializable{
         this.age = calculateAge();
         this.lastFlight = null;
         this.pType = type;
+        this.preferences = new ArrayList<String>();
+        this.creditCards = new ArrayList<CreditCard>();
     }
 
     public Long getId() {
