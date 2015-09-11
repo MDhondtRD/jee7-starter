@@ -19,7 +19,25 @@ public class PassengerRepositoryTest extends DataSetPersistenceTest {
 
     @Test
     public void allPassengerCanBeRetrieved() throws Exception {
-        assertEquals(1, repository.findAll().size());
+        assertEquals(2, repository.findAll().size());
     }
+
+    @Test
+    public void allLastNamesCanBeRetrieved() {
+        assertTrue(repository.findAllLastNames().contains("Dhondt"));
+        assertTrue(repository.findAllLastNames().contains("Sysmans"));
+    }
+
+    @Test
+    public void totalFrequentFlyerMiles() {
+        assertEquals(new Long(3000), repository.totalFrequentFlyerMiles());
+    }
+
+//    @Test
+//    public void deleteAll(){
+//        assertEquals(2, repository.findAll().size());
+//        repository.deleteAll();
+//        assertEquals(0, repository.findAll().size());
+//    }
 
 }

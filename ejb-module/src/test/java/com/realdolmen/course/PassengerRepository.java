@@ -22,4 +22,17 @@ public class PassengerRepository implements RemotePassengerRepository {
         return entityManager.createQuery("select p from Passenger p", Passenger.class).getResultList();
     }
 
+    public List<String> findAllLastNames(){
+        return entityManager.createQuery("select p.lastName from Passenger p", String.class).getResultList();
+    }
+
+    public Long totalFrequentFlyerMiles(){
+        return entityManager.createQuery("select SUM(p.frequentFlyerMiles) from Passenger p", Long.class).getSingleResult();
+    }
+
+//    public void deleteAll(){
+//        // dit gaat meestal niet. Omdat passenger andere relaties enzo heeft. Best met een extra kolom "Active" ofzo werken.
+//        entityManager.createQuery("delete from Passenger").executeUpdate();
+//    }
+
 }

@@ -39,6 +39,22 @@ public class Passenger implements Serializable{
     private List<CreditCard> creditCards;
     @OneToMany
     private List<Ticket> tickets;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastUpdated;
+
+    @PrePersist
+    @PreUpdate
+    private void updateLastUpdatedDate(){
+        setLastUpdated(new Date());
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 
     public void addTicket(Ticket t){
         tickets.add(t);
@@ -124,6 +140,7 @@ public class Passenger implements Serializable{
         this.preferences = new ArrayList<String>();
         this.creditCards = new ArrayList<CreditCard>();
         this.tickets = new ArrayList<Ticket>();
+        this.lastUpdated = new Date();
     }
 
     private byte calculateAge(){
@@ -141,6 +158,7 @@ public class Passenger implements Serializable{
         this.pType = type;
         this.preferences = new ArrayList<String>();
         this.creditCards = new ArrayList<CreditCard>();
+        this.lastUpdated = new Date();
     }
 
     public Long getId() {
