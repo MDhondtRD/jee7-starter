@@ -1,4 +1,4 @@
-package com.realdolmen.course;
+package com.realdolmen.course.Oefening;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;

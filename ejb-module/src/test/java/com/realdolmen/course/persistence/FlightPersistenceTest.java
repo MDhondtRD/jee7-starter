@@ -1,6 +1,9 @@
 package com.realdolmen.course.persistence;
 
-import com.realdolmen.course.*;
+import com.realdolmen.course.Oefening.DomesticFlight;
+import com.realdolmen.course.Oefening.Flight;
+import com.realdolmen.course.Oefening.InternationalFlight;
+import com.realdolmen.course.Oefening.Ticket;
 import org.junit.Test;
 
 import java.util.ArrayList;

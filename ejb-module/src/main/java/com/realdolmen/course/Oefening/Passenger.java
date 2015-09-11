@@ -1,4 +1,4 @@
-package com.realdolmen.course;
+package com.realdolmen.course.Oefening;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -124,7 +124,7 @@ public class Passenger implements Serializable{
         this.preferences = preferences;
     }
 
-    Passenger(){
+    public Passenger(){
 
     }
 

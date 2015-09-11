@@ -46,7 +46,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>com.realdolmen.course.domain.Book</class>
-        <class>com.realdolmen.course.Passenger</class>
+        <class>com.realdolmen.course.Oefening.Passenger</class>
+        <class>com.realdolmen.course.Oefening.Ticket</class>
+        <class>com.realdolmen.course.Oefening.Flight</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

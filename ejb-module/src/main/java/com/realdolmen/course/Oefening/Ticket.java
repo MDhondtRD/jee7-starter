@@ -1,12 +1,13 @@
-package com.realdolmen.course;
+package com.realdolmen.course.Oefening;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by MDNAX30 on 10/09/2015.
  */
 @Entity
-public class Ticket {
+public class Ticket implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +19,14 @@ public class Ticket {
     private Flight out;
     @ManyToOne
     private Flight returnFlight;
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
 
     public Ticket(double price) {
         this.price = price;

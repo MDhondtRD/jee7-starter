@@ -1,6 +1,6 @@
 package com.realdolmen.course.persistence;
 
-import com.realdolmen.course.PassengerRepository;
+import com.realdolmen.course.Oefening.PassengerRepository;
 import org.junit.Before;
 import org.junit.Test;
 

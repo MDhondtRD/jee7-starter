@@ -1,6 +1,4 @@
-package com.realdolmen.course;
-
-import com.realdolmen.course.Passenger;
+package com.realdolmen.course.Oefening;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;

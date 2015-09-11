@@ -1,11 +1,13 @@
-package com.realdolmen.course;
+package com.realdolmen.course.Oefening;
 
-import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@EJB
+@Stateless
+@LocalBean
 public class PassengerEJB implements PassengerEJBInterface {
 
     @PersistenceContext

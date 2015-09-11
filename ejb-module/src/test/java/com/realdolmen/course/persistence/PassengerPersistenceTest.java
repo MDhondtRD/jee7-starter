@@ -1,8 +1,7 @@
 package com.realdolmen.course.persistence;
 
-import com.realdolmen.course.Passenger;
-import com.realdolmen.course.PassengerType;
-import com.realdolmen.course.domain.Book;
+import com.realdolmen.course.Oefening.Passenger;
+import com.realdolmen.course.Oefening.PassengerType;
 import org.junit.Test;
 
 import javax.persistence.PersistenceException;
