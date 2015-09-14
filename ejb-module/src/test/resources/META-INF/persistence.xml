@@ -49,6 +49,8 @@
         <class>com.realdolmen.course.Oefening.Passenger</class>
         <class>com.realdolmen.course.Oefening.Ticket</class>
         <class>com.realdolmen.course.Oefening.Flight</class>
+        <class>com.realdolmen.course.Oefening.DomesticFlight</class>
+        <class>com.realdolmen.course.Oefening.InternationalFlight</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
