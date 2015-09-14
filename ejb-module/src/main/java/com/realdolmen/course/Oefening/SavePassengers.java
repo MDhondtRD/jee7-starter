@@ -9,6 +9,9 @@ import java.util.Date;
 @Stateful
 public class SavePassengers {
 
+    @PersistenceContext
+    EntityManager em;
+
     private Passenger p = null;
 
     public SavePassengers(){
