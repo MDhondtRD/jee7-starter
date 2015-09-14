@@ -3,9 +3,12 @@ package com.realdolmen.exercise.domain;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = Passenger.FIND_ALL_PASSENGERS, query = "SELECT p FROM Passenger p")
 public class Passenger {
 
     // ATTRIBUTES
+
+    public static final String FIND_ALL_PASSENGERS = "Passenger.findAllPassengers";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,9 +86,8 @@ public class Passenger {
     }
 
     public void setFrequentFlyerMiles(Integer frequentFlyerMiles) {
-        if (frequentFlyerMiles == null || frequentFlyerMiles < 0)
-            throw new IllegalArgumentException("Illegal frequent flyer miles.");
-        this.frequentFlyerMiles = frequentFlyerMiles;
+        if (isValidMiles(frequentFlyerMiles))
+            this.frequentFlyerMiles = frequentFlyerMiles;
     }
 
 
@@ -94,8 +96,13 @@ public class Passenger {
     // METHODS
 
     public void addFrequentFlyerMiles(Integer miles){
-        if (frequentFlyerMiles == null || frequentFlyerMiles < 0)
+        if (isValidMiles(miles))
+            this.frequentFlyerMiles += miles;
+    }
+
+    private boolean isValidMiles(Integer miles){
+        if (miles == null || miles < 0)
             throw new IllegalArgumentException("Illegal frequent flyer miles.");
-        this.frequentFlyerMiles += miles;
+        return true;
     }
 }
