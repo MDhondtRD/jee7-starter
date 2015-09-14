@@ -9,8 +9,10 @@ public class PassengerId implements Serializable{
 
     // ATTRIBUTES
 
+    @Column(nullable = false, updatable = false)
     private String ssn;
 
+    @Column(length = 50)
     private String lastName;
 
 
