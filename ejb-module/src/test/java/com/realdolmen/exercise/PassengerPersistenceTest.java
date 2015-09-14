@@ -1,7 +1,6 @@
 package com.realdolmen.exercise;
 
 import com.realdolmen.course.persistence.DataSetPersistenceTest;
-import com.realdolmen.exercise.domain.Passenger;
 import org.junit.Test;
 
 import javax.persistence.PersistenceException;

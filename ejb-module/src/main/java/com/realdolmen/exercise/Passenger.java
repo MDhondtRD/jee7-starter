@@ -1,4 +1,4 @@
-package com.realdolmen.exercise.domain;
+package com.realdolmen.exercise;
 
 import javax.persistence.*;
 
