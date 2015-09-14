@@ -4,24 +4,28 @@ import javax.persistence.*;
 
 @Entity
 @NamedQuery(name = Passenger.FIND_ALL_PASSENGERS, query = "SELECT p FROM Passenger p")
+@SecondaryTables({
+        @SecondaryTable(name = "t_miles"),
+        @SecondaryTable(name = "t_picture")
+})
 public class Passenger {
 
     // ATTRIBUTES
 
     public static final String FIND_ALL_PASSENGERS = "Passenger.findAllPassengers";
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String ssn;
+    @EmbeddedId
+    private PassengerId id;
 
     private String firstName;
 
-    private String lastName;
-
+    @Column(table = "t_miles")
     private Integer frequentFlyerMiles;
+
+    @Basic(fetch = FetchType.LAZY)
+    @Column(table = "t_picture")
+    @Lob
+    private byte[] picture;
 
 
 
@@ -29,40 +33,37 @@ public class Passenger {
     // CONSTRUCTORS
 
     public Passenger(){
-
+        // required no-argument constructor
     }
 
     public Passenger(String ssn){
-        this.ssn = ssn;
+        PassengerId pI = new PassengerId(ssn, "Doe");
+        this.id = pI;
         setFirstName("John");
-        setLastName("Doe");
         setFrequentFlyerMiles(0);
     }
 
     public Passenger(String ssn, String firstName, String lastName){
-        this.ssn = ssn;
+        PassengerId pI = new PassengerId(ssn, lastName);
+        this.id = pI;
         setFirstName(firstName);
-        setLastName(lastName);
         setFrequentFlyerMiles(0);
     }
 
     public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles){
-        this.ssn = ssn;
+        PassengerId pI = new PassengerId(ssn, lastName);
+        this.id = pI;
         setFirstName(firstName);
-        setLastName(lastName);
         setFrequentFlyerMiles(frequentFlyerMiles);
     }
 
 
 
-    // GETTERS && SETTERS
 
-    public Long getId() {
+    // GETTERS & SETTERS
+
+    public PassengerId getId() {
         return id;
-    }
-
-    public String getSsn() {
-        return ssn;
     }
 
     public String getFirstName() {
@@ -73,14 +74,6 @@ public class Passenger {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public Integer getFrequentFlyerMiles() {
         return frequentFlyerMiles;
     }
@@ -88,6 +81,14 @@ public class Passenger {
     public void setFrequentFlyerMiles(Integer frequentFlyerMiles) {
         if (isValidMiles(frequentFlyerMiles))
             this.frequentFlyerMiles = frequentFlyerMiles;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 
 

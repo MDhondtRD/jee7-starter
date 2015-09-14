@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import javax.persistence.PersistenceException;
 
-public class PassengerPersistenceTest extends DataSetPersistenceTest {
+public class PassengerTest extends DataSetPersistenceTest {
 
     @Test
     public void passengersCanBeCreatedWithAllPossibleConstructors(){
@@ -30,12 +30,35 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
         entityManager().flush();
     }
 
+    @Test(expected = PersistenceException.class)
+    public void passengerCanNotBePersistedWithNullSsn(){
+        Passenger p = new Passenger(null);
+        entityManager().persist(p);
+        entityManager().flush();
+    }
+
     @Test
     public void passengerCanBeRetrievedById(){
-        assertNotNull(entityManager().find(Passenger.class, 100L));
-        assertNotNull(entityManager().find(Passenger.class, 101L));
-        assertNotNull(entityManager().find(Passenger.class, 102L));
-        assertNotNull(entityManager().find(Passenger.class, 103L));
+        PassengerId pI;
+        pI = new PassengerId("91.04.17-099.69","Dhondt");
+        assertNotNull(entityManager().find(Passenger.class, pI));
+        assertEquals("Maarten", entityManager().find(Passenger.class, pI).getFirstName());
+        pI = new PassengerId("95.07.14-099.69","Sysmans");
+        assertNotNull(entityManager().find(Passenger.class, pI));
+        assertEquals("Lien", entityManager().find(Passenger.class, pI).getFirstName());
+        pI = new PassengerId("64.12.06-099.69","Dhondt");
+        assertNotNull(entityManager().find(Passenger.class, pI));
+        assertEquals("Hans", entityManager().find(Passenger.class, pI).getFirstName());
+        pI = new PassengerId("68.02.24-099.69","Dewitte");
+        assertNotNull(entityManager().find(Passenger.class, pI));
+        assertEquals("Griet", entityManager().find(Passenger.class, pI).getFirstName());
+
+        Passenger p = new Passenger("93.04.22-099.69");
+        entityManager().persist(p);
+        entityManager().flush();
+        pI = new PassengerId("93.04.22-099.69","Doe");
+        assertNotNull(entityManager().find(Passenger.class, pI));
+        assertEquals("John", entityManager().find(Passenger.class, pI).getFirstName());
     }
 
     @Test

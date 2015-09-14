@@ -3,8 +3,18 @@
     <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
     <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
 
-    <passenger id="100" ssn="91.04.17-099.69" firstName="Maarten" lastName="Dhondt" frequentFlyerMiles="2500" />
-    <passenger id="101" ssn="95.07.14-099.69" firstName="Lien" lastName="Sysmans" frequentFlyerMiles="0" />
-    <passenger id="102" ssn="64.12.06-099.69" firstName="Hans" lastName="Dhondt" frequentFlyerMiles="1000" />
-    <passenger id="103" ssn="68.02.24-099.69" firstName="Griet" lastName="Dewitte" frequentFlyerMiles="5000" />
+    <passenger ssn="91.04.17-099.69" firstName="Maarten" lastName="Dhondt" />
+    <passenger ssn="95.07.14-099.69" firstName="Lien" lastName="Sysmans" />
+    <passenger ssn="64.12.06-099.69" firstName="Hans" lastName="Dhondt" />
+    <passenger ssn="68.02.24-099.69" firstName="Griet" lastName="Dewitte" />
+
+    <t_miles ssn="91.04.17-099.69" lastName="Dhondt" frequentFlyerMiles="5000" />
+    <t_miles ssn="95.07.14-099.69" lastName="Sysmans" frequentFlyerMiles="1000" />
+    <t_miles ssn="64.12.06-099.69" lastName="Dhondt" frequentFlyerMiles="0" />
+    <t_miles ssn="68.02.24-099.69" lastName="Dewitte" frequentFlyerMiles="2500" />
+
+    <t_picture ssn="91.04.17-099.69" lastName="Dhondt" />
+    <t_picture ssn="95.07.14-099.69" lastName="Sysmans" />
+    <t_picture ssn="64.12.06-099.69" lastName="Dhondt" />
+    <t_picture ssn="68.02.24-099.69" lastName="Dewitte" />
 </dataset>
