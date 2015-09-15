@@ -3,7 +3,7 @@
     <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
     <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
 
-    <passenger ssn="91.04.17-099.69" firstName="Maarten" lastName="Dhondt" dateOfBirth="1991-04-17" lastFlight="2014-07-11" type="REGULAR"/>
+    <passenger ssn="91.04.17-099.69" firstName="Maarten" lastName="Dhondt" dateOfBirth="1991-04-17" lastFlight="2014-07-11" type="REGULAR" street1="Croix ou Pile 1" zipCode="7912" country="Belgium" city="Saint-Sauveur" />
     <passenger ssn="95.07.14-099.69" firstName="Lien" lastName="Sysmans" dateOfBirth="1995-07-14" />
     <passenger ssn="64.12.06-099.69" firstName="Hans" lastName="Dhondt" dateOfBirth="1964-12-06" />
     <passenger ssn="68.02.24-099.69" firstName="Griet" lastName="Dewitte" dateOfBirth="1968-02-24" />
@@ -17,4 +17,16 @@
     <t_picture ssn="95.07.14-099.69" lastName="Sysmans" />
     <t_picture ssn="64.12.06-099.69" lastName="Dhondt" />
     <t_picture ssn="68.02.24-099.69" lastName="Dewitte" />
+
+    <passenger_preferences Passenger_ssn="91.04.17-099.69" Passenger_lastName="Dhondt" preferences="cola" />
+    <passenger_preferences Passenger_ssn="91.04.17-099.69" Passenger_lastName="Dhondt" preferences="pizza" />
+    <passenger_preferences Passenger_ssn="95.07.14-099.69" Passenger_lastName="Sysmans" />
+    <passenger_preferences Passenger_ssn="64.12.06-099.69" Passenger_lastName="Dhondt" />
+    <passenger_preferences Passenger_ssn="68.02.24-099.69" Passenger_lastName="Dewitte" />
+
+    <passenger_creditcards Passenger_ssn="91.04.17-099.69" Passenger_lastName="Dhondt" controlNumber="123" expiryDate="nooit" number="geheim" type="VISA" />
+    <passenger_creditcards Passenger_ssn="91.04.17-099.69" Passenger_lastName="Dhondt" controlNumber="123" expiryDate="nooit" number="geheim" type="MASTER" />
+    <passenger_creditcards Passenger_ssn="95.07.14-099.69" Passenger_lastName="Sysmans" />
+    <passenger_creditcards Passenger_ssn="64.12.06-099.69" Passenger_lastName="Dhondt" />
+    <passenger_creditcards Passenger_ssn="68.02.24-099.69" Passenger_lastName="Dewitte" />
 </dataset>
