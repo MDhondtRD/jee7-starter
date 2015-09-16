@@ -11,6 +11,15 @@ public class Ticket {
 
     private Double price;
 
+    @Enumerated(value = EnumType.STRING)
+    private Status status;
+
+    @ManyToOne
+    private Flight outFlight;
+
+    @ManyToOne
+    private Flight returnFlight;
+
 
 
 
@@ -22,6 +31,9 @@ public class Ticket {
 
     public Ticket(Double price) {
         this.price = price;
+        this.status = Status.PENDING;
+        this.outFlight = null;
+        this.returnFlight = null;
     }
 
 
@@ -39,5 +51,29 @@ public class Ticket {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Flight getOutFlight() {
+        return outFlight;
+    }
+
+    public void setOutFlight(Flight outFlight) {
+        this.outFlight = outFlight;
+    }
+
+    public Flight getReturnFlight() {
+        return returnFlight;
+    }
+
+    public void setReturnFlight(Flight returnFlight) {
+        this.returnFlight = returnFlight;
     }
 }

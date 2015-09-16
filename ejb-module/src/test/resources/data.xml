@@ -1,7 +1,7 @@
 <dataset>
-    <book id="1000" author="George Orwell" title="Nineteen Eighty Four" genre="fiction"/>
-    <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
-    <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
+    <book id="10" author="George Orwell" title="Nineteen Eighty Four" genre="fiction"/>
+    <book id="20" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
+    <book id="30" author="Bram Stoker" title="Dracula" genre="fiction"/>
 
     <passenger ssn="91.04.17-099.69" firstName="Maarten" lastName="Dhondt" dateOfBirth="1991-04-17" lastFlight="2014-07-11" type="REGULAR" street1="Croix ou Pile 1" zipCode="7912" country="Belgium" city="Saint-Sauveur" />
     <passenger ssn="95.07.14-099.69" firstName="Lien" lastName="Sysmans" dateOfBirth="1995-07-14" />
@@ -29,4 +29,39 @@
     <passenger_creditcards Passenger_ssn="95.07.14-099.69" Passenger_lastName="Sysmans" />
     <passenger_creditcards Passenger_ssn="64.12.06-099.69" Passenger_lastName="Dhondt" />
     <passenger_creditcards Passenger_ssn="68.02.24-099.69" Passenger_lastName="Dewitte" />
+
+    <plane id="1" type="Boeing 747" />
+    <plane id="2" type="Boeing 747" />
+    <plane id="3" type="Boeing 747" />
+    <plane id="4" type="Airbus A330" />
+    <plane id="5" type="Airbus A330" />
+    <plane id="6" type="Douglas DC-8" />
+    <plane id="7" type="Yakovlev" />
+
+    <airport id="1" name="Antwerp International (Deurne)" code="ANR" />
+    <airport id="2" name="Brussels South Charleroi" code="CRL" />
+    <airport id="3" name="Brussels" code="BRU" />
+    <airport id="4" name="Wevelgem" code="KJK" />
+    <airport id="5" name="Liège" code="LGG" />
+    <airport id="6" name="Ostend-Bruges International" code="OST" />
+    <airport id="7" name="Oostmalle Air Base" code="OBL" />
+    <airport id="8" name="Ghent" code="GNE" />
+    <airport id="9" name="Knokke/Het Zoute" code="KNO" />
+    <airport id="10" name="Arlon-Sterpenich ULM" code="QON" />
+    <airport id="11" name="Suarlée" code="QNM" />
+    <airport id="12" name="Tournai/Maubray" code="ZGQ" />
+    <airport id="13" name="Kiewit Airfield Hasselt" code="QHA" />
+
+    <flight id="1" number="ABC11" plane_id="1"
+            arrivalTime="2015-08-16 15:30:00" arrivalAirport_id="4"
+            departureTime="2015-08-16 15:00:00" departureAirport_id="2" />
+    <flight id="2" number="DEF22" plane_id="4"
+            arrivalTime="2015-08-16 16:30:00" arrivalAirport_id="8"
+            departureTime="2015-08-16 16:00:00" departureAirport_id="12" />
+    <flight id="3" number="GHI33" plane_id="7"
+            arrivalTime="2015-08-16 17:30:00" arrivalAirport_id="1"
+            departureTime="2015-08-16 17:00:00" departureAirport_id="13" />
+
+    <ticket id="1" price="19.99" status="PURCHASED" outFlight_id="1" returnFlight_id="2" />
+    <ticket id="2" price="39.99" status="PURCHASED" outFlight_id="2" returnFlight_id="3" />
 </dataset>

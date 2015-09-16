@@ -51,6 +51,9 @@ public class Passenger {
     @ElementCollection
     private Set<CreditCard> creditCards;
 
+    @OneToMany
+    private Set<Ticket> tickets;
+
 
 
 
