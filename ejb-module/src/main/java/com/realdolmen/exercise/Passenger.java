@@ -52,7 +52,7 @@ public class Passenger {
     private Set<CreditCard> creditCards;
 
     @OneToMany
-    private Set<Ticket> tickets;
+    private Set<Ticket> tickets = new HashSet<Ticket>();
 
 
 
@@ -266,6 +266,13 @@ public class Passenger {
         return set;
     }
 
+    public Set<Ticket> getTickets() {
+        HashSet<Ticket> set = new HashSet<Ticket>();
+        for (Ticket t : tickets)
+            set.add(t);
+        return set;
+    }
+
 
 
 
@@ -336,5 +343,21 @@ public class Passenger {
                 System.out.println("Null creditcard was not added to the list of creditcards.");
             else
                 this.creditCards.add(cc);
+    }
+
+    public void addTicket(Ticket t){
+        if (t == null)
+            throw new IllegalArgumentException("Null Ticket is not allowed.");
+        tickets.add(t);
+    }
+
+    public void addTickets(Collection<Ticket> tickets){
+        if (tickets == null)
+            throw new IllegalArgumentException("Null collection of tickets cannot be added.");
+        for (Ticket t : tickets)
+            if (t == null)
+                System.out.println("Null ticket was not added to the list of tickets.");
+            else
+                this.tickets.add(t);
     }
 }

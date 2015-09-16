@@ -132,4 +132,45 @@ public class PassengerTest extends DataSetPersistenceTest {
         assertEquals(3, entityManager().find(Passenger.class, new PassengerId("91.04.17-099.69", "Dhondt")).getCreditCards().size());
     }
 
+    @Test
+    public void ticketsCanBeAdded(){
+        Flight f1 = new DomesticFlight("TST1");
+        f1.setArrivalAirport(entityManager().find(Airport.class, 1));
+        f1.setDepartureAirport(entityManager().find(Airport.class, 2));
+        f1.setPlane(entityManager().find(Plane.class, 5));
+        f1.setArrivalTime(new Date(1440108000000L));
+        f1.setDepartureTime(new Date(1440104400000L));
+        Flight f2 = new DomesticFlight("TST1");
+        f2.setArrivalAirport(entityManager().find(Airport.class, 3));
+        f2.setDepartureAirport(entityManager().find(Airport.class, 4));
+        f2.setPlane(entityManager().find(Plane.class, 2));
+        f2.setArrivalTime(new Date(1440108000000L));
+        f2.setDepartureTime(new Date(1440104400000L));
+        Ticket t1 = new Ticket();
+        Ticket t2 = new Ticket();
+        t1.setStatus(Status.PENDING);
+        t2.setOutFlight(f1);
+        t2.setPrice(124.74);
+        t2.setReturnFlight(f2);
+        t2.setStatus(Status.PURCHASED);
+        Passenger p = new Passenger("38.03.08-099.69", "Marie-Paule", "Oppalfens", 3333, new Date(-991360800000L), PassengerType.OCCASIONAL, "Croix ou Pile 1", null, "Ronse", "9600", "Belgium");
+        assertNotNull(t1);
+        assertNotNull(p);
+        p.addTicket(t1);
+        p.addTicket(t2);
+        entityManager().persist(f1);
+        entityManager().persist(f2);
+        entityManager().persist(t1);
+        entityManager().persist(t2);
+        entityManager().persist(p);
+        entityManager().flush();
+        assertNotNull(f1.getId());
+        assertNotNull(f2.getId());
+        assertNotNull(t1.getId());
+        assertNotNull(t2.getId());
+        assertNotNull(p.getId());
+        assertTrue(entityManager().find(Passenger.class, p.getId()).getTickets().contains(t1));
+        assertTrue(entityManager().find(Passenger.class, p.getId()).getTickets().contains(t2));
+    }
+
 }

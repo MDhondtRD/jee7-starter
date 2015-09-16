@@ -51,6 +51,8 @@
         <class>com.realdolmen.exercise.Flight</class>
         <class>com.realdolmen.exercise.Airport</class>
         <class>com.realdolmen.exercise.Plane</class>
+        <class>com.realdolmen.exercise.InternationalFlight</class>
+        <class>com.realdolmen.exercise.DomesticFlight</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

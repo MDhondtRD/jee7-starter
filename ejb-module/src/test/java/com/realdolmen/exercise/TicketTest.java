@@ -52,13 +52,13 @@ public class TicketTest extends DataSetPersistenceTest {
 
     @Test
     public void newFlightsCanBeAddedToTicketWhilePersistingFlightsAsWell(){
-        Flight f1 = new Flight("TST1");
+        Flight f1 = new DomesticFlight("TST1");
         f1.setArrivalAirport(entityManager().find(Airport.class, 1));
         f1.setDepartureAirport(entityManager().find(Airport.class, 2));
         f1.setPlane(entityManager().find(Plane.class, 5));
         f1.setArrivalTime(new Date(1440108000000L));
         f1.setDepartureTime(new Date(1440104400000L));
-        Flight f2 = new Flight("TST1");
+        Flight f2 = new DomesticFlight("TST1");
         f2.setArrivalAirport(entityManager().find(Airport.class, 3));
         f2.setDepartureAirport(entityManager().find(Airport.class, 4));
         f2.setPlane(entityManager().find(Plane.class, 2));

@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Flight {
+@Inheritance
+public abstract class Flight {
 
     // ATTRIBUTES
 

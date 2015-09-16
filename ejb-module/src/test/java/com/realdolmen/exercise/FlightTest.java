@@ -7,16 +7,16 @@ public class FlightTest extends DataSetPersistenceTest {
 
     @Test
     public void flightsCanBeCreatedWithAllPossibleConstructors(){
-        Flight f1 = new Flight();
-        Flight f2 = new Flight("XYZ314");
+        Flight f1 = new DomesticFlight();
+        Flight f2 = new InternationalFlight("XYZ314");
         assertNotNull(f1);
         assertNotNull(f2);
     }
 
     @Test
     public void flightCanBePersisted(){
-        Flight f1 = new Flight();
-        Flight f2 = new Flight("XYZ314");
+        Flight f1 = new InternationalFlight();
+        Flight f2 = new DomesticFlight("XYZ314");
         entityManager().persist(f1);
         entityManager().persist(f2);
         entityManager().flush();
@@ -26,7 +26,7 @@ public class FlightTest extends DataSetPersistenceTest {
 
     @Test
     public void flightCanBeRetrievedById(){
-        Flight f = new Flight("XYZ314");
+        Flight f = new DomesticFlight("XYZ314");
         entityManager().persist(f);
         entityManager().flush();
         assertEquals("XYZ314", entityManager().find(Flight.class, f.getId()).getNumber());
