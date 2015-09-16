@@ -4,6 +4,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.io.Serializable;
 import java.util.List;
 
 @Stateless
@@ -36,5 +37,15 @@ public class PassengerEJB implements PassengerEJBInterface {
     @Override
     public void updatePassenger(Passenger passenger) {
 
+    }
+
+    @Override
+    public List<InternationalFlight> findFlights(){
+        return em.createQuery("SELECT f FROM InternationalFlight f", InternationalFlight.class).getResultList();
+    }
+
+    @Override
+    public Flight findFlight(Long id){
+        return (Flight) em.createQuery("SELECT f FROM Flight f WHERE f.id = :id").setParameter("id",id).getSingleResult();
     }
 }

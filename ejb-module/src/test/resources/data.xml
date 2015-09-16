@@ -9,6 +9,8 @@
     <passenger_preferences Passenger_id="6000" />
     <passenger_creditcards Passenger_id="6000" />
     <Ticket id="5000" price="199.99" />
-    <flight id="50" />
+    <flight id="50" number="ABC15"/>
+    <flight id="60" number="DEF16"/>
     <internationalflight id="50" blacklisted="0" />
+    <internationalflight id="60" blacklisted="1" />
 </dataset>

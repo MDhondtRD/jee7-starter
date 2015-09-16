@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:rd="http://java.sun.com/jsf/composite/realdolmen">
+
+<ui:composition template="templateAttempt.xhtml">
+    <ui:define name="pageTitle">
+        Template Shizzle
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:panelGrid columns="2" styleClass="ui-noborder">
+                <p:outputLabel for="passengerlist" value="Passenger:" />
+                <p:selectOneMenu id="passengerlist" value="#{passengerController.passenger}" style="width:225px">
+                    <f:selectItems value="#{passengerController.allPassengers}" var="passenger"
+                                   itemLabel="#{passenger.lastName}" itemValue="#{passenger.id}" />
+                </p:selectOneMenu>
+
+                <p:outputLabel for="price" value="Price:" style="width:250px"/>
+                <p:inputText id="price" value="#{passengerController.price}" />
+
+                <p:outputLabel for="flightlist" value="Flight:" />
+                <p:selectOneMenu id="flightlist" value="#{passengerController.flight}" style="width:225px">
+                    <f:selectItems value="#{passengerController.allFlights}" var="flight"
+                                   itemLabel="#{flight.number}" itemValue="#{flight.id}" />
+                </p:selectOneMenu>
+
+                <f:facet name="footer">
+                    <h:panelGroup style="display:block; text-align:center">
+                        <h:commandButton type="submit" value="Save" icon="ui-icon-check" action="#{passengerController.persistPrice()}" />
+                    </h:panelGroup>
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+
+        <rd:flightDetails flightId="50" />
+    </ui:define>
+</ui:composition>
+
+</html>

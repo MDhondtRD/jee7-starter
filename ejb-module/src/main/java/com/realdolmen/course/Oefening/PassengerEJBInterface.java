@@ -10,4 +10,6 @@ public interface PassengerEJBInterface {
     public void createPassenger(Passenger passenger);
     public void deletePassenger(Passenger passenger);
     public void updatePassenger(Passenger passenger);
+    public List<InternationalFlight> findFlights();
+    public Flight findFlight(Long id);
 }
